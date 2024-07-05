@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_architecture/screens/first_screen.dart';
-import 'package:flutter_mvvm_architecture/screens/second_screen.dart';
+import 'package:flutter_mvvm_architecture/screens/details/details_screen.dart';
+import 'package:flutter_mvvm_architecture/screens/main_list/main_list_screen.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
@@ -12,12 +12,12 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        pageBuilder: (context, state) => const MaterialPage(child: FirstScreen()),
+        pageBuilder: (context, state) => const MaterialPage(child: MainListScreen()),
         routes: [
           GoRoute(
             path: ':$_idParam',
             pageBuilder: (context, state) => MaterialPage(
-              child: SecondScreen(
+              child: DetailsScreen(
                 id: state.pathParameters[_idParam],
               ),
             ),
